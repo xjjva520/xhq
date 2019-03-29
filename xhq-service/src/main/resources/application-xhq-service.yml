@@ -1,0 +1,33 @@
+#spring.data.mongodb.host=${mongodb.host}
+#spring.data.mongodb.port=${mongodb.port}
+#spring.data.mongodb.database=${mongodb.database}
+#spring.data.mongodb.password=${mongodb.password}
+#spring.data.mongodb.username=${mongodb.username}
+spring:
+  data: 
+    mongodb:
+         host: 192.168.111.128
+         port: 27017
+         database: xhq
+         password: xjj
+         username: xjj
+    solr:
+        host: http://192.168.111.128:8983/solr
+##添加日志启动
+logging:config: classpath :log4j2.xml 
+feign:
+  hystrix:
+    enabled: true
+  redis-service:
+    name: redis-service
+    url: http://localhost:5001/
+##熔断配置
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5

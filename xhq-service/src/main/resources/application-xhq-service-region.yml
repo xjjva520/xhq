@@ -1,0 +1,29 @@
+spring:
+   application:
+     name: xhq-service
+   data:
+     mongodb:
+         host: 192.168.111.128
+         port: 27017
+         database: xhq
+         password: xjj
+         username: xjj
+
+server:
+    port: 2001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    prefer-same-zone-eureka: true
+    region: beijing
+    availability-zones:
+      beijing: zone-1,zone-2
+    service-url:
+      zone-1: http://192.168.111.128:30000/eureka/
+      zone-2: http://192.168.111.128:30001/eureka/
+#指定往哪个zone发送心跳
+zone:
+  name: zone-1
+
+  

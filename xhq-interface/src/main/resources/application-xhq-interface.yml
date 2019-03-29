@@ -1,0 +1,28 @@
+spring:
+   application:
+       name: xhq-interface
+server:
+  port: 3001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.111.128:1001/eureka/
+logging:
+   config: classpath:log4j2.xml
+##feign配置
+feign:
+  hystrix:
+    enabled: true
+  xhq-service:
+    name: xhq-service
+    url: http://localhost:2001/
+##熔断配置
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000

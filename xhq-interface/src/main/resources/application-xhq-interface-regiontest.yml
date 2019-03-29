@@ -1,0 +1,24 @@
+spring:
+   application:
+     name: xhq-interface
+server:
+    port: 3001
+logging:
+    config: classpath:log4j2.xml
+
+eureka:
+  instance:
+    metadata-map:
+      #指定拿zone-1的服务注册中心
+      zone: zone-1
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    prefer-same-zone-eureka: true
+    region: beijing
+    availability-zones:
+      beijing: zone-1,zone-2
+    service-url:
+      zone-1: http://192.168.111.128:30000/eureka/
+      zone-2: http://192.168.111.128:30001/eureka/
+  

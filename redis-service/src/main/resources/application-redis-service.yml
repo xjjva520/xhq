@@ -1,0 +1,28 @@
+spring:
+   application:
+     name: redis-service
+server:
+    port: 5001
+eureka:
+  client:
+    serviceUrl:
+        defaultZone: http://192.168.111.128:1001/eureka/
+##redis相关配置
+redis:
+  maxTotal: 8
+  maxIdle: 8
+  minIdle: 1
+  maxWaitMillis: 5000
+  minEvictableIdleTimeMillis: 300000
+  numTestsPerEvictionRun: 3
+  timeBetweenEvictionRunsMillis: 60000
+  #Redis Sentinel Config  ##创建几个pool池
+  sentinel:
+     pools: 2
+     masterName: xjj1,xjj2
+     host: 192.168.111.128:26379,192.168.111.127:26379
+     password: xhq
+     connectionTimeout: 1000
+     soTimeout: 2000
+##添加日志启动
+logging:config: classpath :log4j2.xml     
