@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.xhq.xhqservice.client.fallback.RedisClientFallBack;
 
-@FeignClient(name = "${feign.redis-service.name}", url = "${feign.redis-service.url}", fallback = RedisClientFallBack.class)
+@FeignClient(value = "${feign.redis-service.name}", fallback = RedisClientFallBack.class)
 public interface RedisClient {
 	/**
 	 * set

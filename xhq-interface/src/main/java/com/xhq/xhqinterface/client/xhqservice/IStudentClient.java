@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.xhq.xhqinterface.client.xhqservice.fallbak.StudentFallBack;
 
 
-@FeignClient(name = "${feign.xhq-service.name}", url = "${feign.xhq-service.url}", fallback = StudentFallBack.class)
+@FeignClient(name = "${feign.xhq-service.name}",url="${feign.xhq-service.url}", fallback = StudentFallBack.class)
 public interface IStudentClient {
     
 	@RequestMapping(value="student/findByName", method=RequestMethod.GET)

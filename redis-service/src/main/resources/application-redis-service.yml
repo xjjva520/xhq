@@ -6,7 +6,7 @@ server:
 eureka:
   client:
     serviceUrl:
-        defaultZone: http://192.168.111.128:1001/eureka/
+        defaultZone: http://peer1:1001/eureka/
 ##redis相关配置
 redis:
   maxTotal: 8
